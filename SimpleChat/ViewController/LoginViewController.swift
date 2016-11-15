@@ -10,7 +10,11 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
-    @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var usernameTextField: UITextField! {
+        didSet {
+            usernameTextField.delegate = self
+        }
+    }
     
     
     init() {
@@ -26,6 +30,10 @@ extension LoginViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
+        guard let username = textField.text else { return false }
+        
+        let chatViewController = ChatViewController(username: username)
+        self.present(chatViewController, animated: true, completion: nil)
         return true
     }
 }

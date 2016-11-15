@@ -13,6 +13,8 @@
 		4BB232771DDB432000C4C78A /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BB232761DDB432000C4C78A /* CloudKit.framework */; };
 		4BB2327A1DDB437100C4C78A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB232781DDB437100C4C78A /* LoginViewController.swift */; };
 		4BB2327B1DDB437100C4C78A /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BB232791DDB437100C4C78A /* LoginViewController.xib */; };
+		4BB2327E1DDB45EA00C4C78A /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB2327C1DDB45EA00C4C78A /* ChatViewController.swift */; };
+		4BB2327F1DDB45EA00C4C78A /* ChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BB2327D1DDB45EA00C4C78A /* ChatViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,8 @@
 		4BB232761DDB432000C4C78A /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		4BB232781DDB437100C4C78A /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ViewController/LoginViewController.swift; sourceTree = "<group>"; };
 		4BB232791DDB437100C4C78A /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginViewController.xib; path = ViewController/LoginViewController.xib; sourceTree = "<group>"; };
+		4BB2327C1DDB45EA00C4C78A /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChatViewController.swift; path = ViewController/ChatViewController.swift; sourceTree = "<group>"; };
+		4BB2327D1DDB45EA00C4C78A /* ChatViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ChatViewController.xib; path = ViewController/ChatViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +78,8 @@
 			children = (
 				4BB232781DDB437100C4C78A /* LoginViewController.swift */,
 				4BB232791DDB437100C4C78A /* LoginViewController.xib */,
+				4BB2327C1DDB45EA00C4C78A /* ChatViewController.swift */,
+				4BB2327D1DDB45EA00C4C78A /* ChatViewController.xib */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -156,6 +162,7 @@
 			files = (
 				4BB2327B1DDB437100C4C78A /* LoginViewController.xib in Resources */,
 				4BB2326C1DDB42D800C4C78A /* LaunchScreen.storyboard in Resources */,
+				4BB2327F1DDB45EA00C4C78A /* ChatViewController.xib in Resources */,
 				4BB232691DDB42D800C4C78A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -168,6 +175,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4BB2327A1DDB437100C4C78A /* LoginViewController.swift in Sources */,
+				4BB2327E1DDB45EA00C4C78A /* ChatViewController.swift in Sources */,
 				4BB232621DDB42D800C4C78A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
