@@ -18,6 +18,7 @@
 		4BB232831DDB474600C4C78A /* OwnMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB232811DDB474600C4C78A /* OwnMessageTableViewCell.swift */; };
 		4BB232841DDB474600C4C78A /* OwnMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BB232821DDB474600C4C78A /* OwnMessageTableViewCell.xib */; };
 		4BB232871DDB4A9900C4C78A /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB232861DDB4A9900C4C78A /* Message.swift */; };
+		4BB2328A1DDB4B5F00C4C78A /* MessageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB232891DDB4B5F00C4C78A /* MessageStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		4BB232811DDB474600C4C78A /* OwnMessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OwnMessageTableViewCell.swift; path = View/OwnMessageTableViewCell.swift; sourceTree = "<group>"; };
 		4BB232821DDB474600C4C78A /* OwnMessageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OwnMessageTableViewCell.xib; path = View/OwnMessageTableViewCell.xib; sourceTree = "<group>"; };
 		4BB232861DDB4A9900C4C78A /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Message.swift; path = Model/Message.swift; sourceTree = "<group>"; };
+		4BB232891DDB4B5F00C4C78A /* MessageStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageStore.swift; path = Store/MessageStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 		4BB232601DDB42D800C4C78A /* SimpleChat */ = {
 			isa = PBXGroup;
 			children = (
+				4BB232881DDB4B4F00C4C78A /* Store */,
 				4BB232851DDB4A8100C4C78A /* Model */,
 				4BB232741DDB42F300C4C78A /* SimpleChat.entitlements */,
 				4BB232731DDB42E800C4C78A /* ViewController */,
@@ -115,6 +118,14 @@
 				4BB232861DDB4A9900C4C78A /* Message.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		4BB232881DDB4B4F00C4C78A /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				4BB232891DDB4B5F00C4C78A /* MessageStore.swift */,
+			);
+			name = Store;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,6 +214,7 @@
 				4BB232831DDB474600C4C78A /* OwnMessageTableViewCell.swift in Sources */,
 				4BB2327A1DDB437100C4C78A /* LoginViewController.swift in Sources */,
 				4BB232871DDB4A9900C4C78A /* Message.swift in Sources */,
+				4BB2328A1DDB4B5F00C4C78A /* MessageStore.swift in Sources */,
 				4BB2327E1DDB45EA00C4C78A /* ChatViewController.swift in Sources */,
 				4BB232621DDB42D800C4C78A /* AppDelegate.swift in Sources */,
 			);
