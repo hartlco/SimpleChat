@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChatViewController" customModule="SimpleChat" customModuleProvider="target">
             <connections>
+                <outlet property="messageTextField" destination="rjO-BJ-oJi" id="hKe-6O-zaH"/>
                 <outlet property="tableView" destination="qqj-X2-gaR" id="7pX-po-n68"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -21,16 +22,28 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qqj-X2-gaR">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="624"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add message" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rjO-BJ-oJi">
+                    <rect key="frame" x="10" y="632" width="343" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="OHQ-Ln-Nhl"/>
+                    </constraints>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="qqj-X2-gaR" secondAttribute="trailing" id="2ec-dW-jvL"/>
-                <constraint firstAttribute="bottom" secondItem="qqj-X2-gaR" secondAttribute="bottom" id="2gm-M8-yId"/>
                 <constraint firstItem="qqj-X2-gaR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="74A-aZ-OCz"/>
                 <constraint firstItem="qqj-X2-gaR" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="80Z-IF-0DB"/>
+                <constraint firstAttribute="trailing" secondItem="rjO-BJ-oJi" secondAttribute="trailing" constant="22" id="GuT-H6-j2b"/>
+                <constraint firstItem="rjO-BJ-oJi" firstAttribute="top" secondItem="qqj-X2-gaR" secondAttribute="bottom" constant="8" id="VOS-yU-Vr4"/>
+                <constraint firstAttribute="bottom" secondItem="rjO-BJ-oJi" secondAttribute="bottom" constant="5" id="YKX-5c-msF"/>
+                <constraint firstItem="rjO-BJ-oJi" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="fyJ-HS-T7m"/>
             </constraints>
             <point key="canvasLocation" x="25.5" y="52.5"/>
         </view>

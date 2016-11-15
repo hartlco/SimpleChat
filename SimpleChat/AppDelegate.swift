@@ -7,10 +7,14 @@
 //
 
 import UIKit
+import CloudKit
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    static let CloudKitNotificationName = NSNotification.Name("CloudKitNotificationName")
+    
     var window: UIWindow?
 
 
@@ -19,7 +23,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let loginViewController = LoginViewController()
         window?.rootViewController = loginViewController
         window?.makeKeyAndVisible()
+ 
+        application.registerForRemoteNotifications()
+        
+        //create the notificationCenter
+        let center  = UNUserNotificationCenter.current()
+//        center.delegate = self
+        // set the type as sound or badge
+        center.requestAuthorization(options: [.sound,.alert,.badge]) { (granted, error) in
+            // Enable or disable features based on authorization
+            
+        }
+        application.registerForRemoteNotifications()
         return true
+    }
+    
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        
+        let notification = CKQueryNotification(fromRemoteNotificationDictionary: userInfo as! [String : NSObject])
+        NotificationCenter.default.post(name: AppDelegate.CloudKitNotificationName, object: notification)
     }
 
 }

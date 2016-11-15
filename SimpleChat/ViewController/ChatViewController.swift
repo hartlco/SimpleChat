@@ -21,12 +21,20 @@ class ChatViewController: UIViewController {
             tableView.estimatedRowHeight = 44.0
         }
     }
-    private let username: String
+    
+    @IBOutlet weak var messageTextField: UITextField! {
+        didSet {
+            messageTextField.delegate = self
+        }
+    }
+    
+    
+    fileprivate let username: String
     fileprivate let messageStore: MessageStore
     
     init(username: String) {
         self.username = username
-        self.messageStore = MessageStore(username: username)
+        self.messageStore = MessageStore()
         super.init(nibName: String(describing: ChatViewController.self), bundle: nil)
     }
     
@@ -54,5 +62,15 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
         ownMessageCell.usernameLabel.text = message.username
         ownMessageCell.messageLabel.text = message.message
         return ownMessageCell
+    }
+}
+
+extension ChatViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        guard let messageText = textField.text else { return false }
+        
+        let message = Message(username: username, message: messageText, date: Date(), ownMessage: true)
+        messageStore.send(message: message)
+        return true
     }
 }
