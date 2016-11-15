@@ -12,4 +12,5 @@ struct Message {
     let username: String
     let message: String
     let date: Date
+    let ownMessage: Bool
 }
