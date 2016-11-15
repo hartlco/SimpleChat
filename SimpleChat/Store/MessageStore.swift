@@ -11,15 +11,11 @@ import CloudKit
 
 class MessageStore {
     private let username: String
-    private var messages = [Message]()
+    private(set) var messages = [Message]()
     
     init(username: String) {
         self.username = username
         messages.append(Message(username: username, message: "Test1", date: Date()))
-    }
-    
-    func loadMessages() -> [Message] {
-        return messages
     }
     
 }

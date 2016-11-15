@@ -22,9 +22,11 @@ class ChatViewController: UIViewController {
         }
     }
     private let username: String
+    fileprivate let messageStore: MessageStore
     
     init(username: String) {
         self.username = username
+        self.messageStore = MessageStore(username: username)
         super.init(nibName: String(describing: ChatViewController.self), bundle: nil)
     }
     
@@ -41,12 +43,16 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return messageStore.messages.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let ownMessageCell = tableView.dequeueReusableCell(withIdentifier: ChatViewController.OwnMessageCellIdentifier, for: indexPath)
+        let message = messageStore.messages[indexPath.row]
         
+        guard let ownMessageCell = tableView.dequeueReusableCell(withIdentifier: ChatViewController.OwnMessageCellIdentifier, for: indexPath) as? OwnMessageTableViewCell else { return UITableViewCell() }
+        
+        ownMessageCell.usernameLabel.text = message.username
+        ownMessageCell.messageLabel.text = message.message
         return ownMessageCell
     }
 }
