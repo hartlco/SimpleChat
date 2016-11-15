@@ -8,23 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		4BB232621DDB42D800C4C78A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB232611DDB42D800C4C78A /* AppDelegate.swift */; };
-		4BB232641DDB42D800C4C78A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB232631DDB42D800C4C78A /* ViewController.swift */; };
-		4BB232671DDB42D800C4C78A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BB232651DDB42D800C4C78A /* Main.storyboard */; };
 		4BB232691DDB42D800C4C78A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BB232681DDB42D800C4C78A /* Assets.xcassets */; };
 		4BB2326C1DDB42D800C4C78A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BB2326A1DDB42D800C4C78A /* LaunchScreen.storyboard */; };
 		4BB232771DDB432000C4C78A /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BB232761DDB432000C4C78A /* CloudKit.framework */; };
+		4BB2327A1DDB437100C4C78A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB232781DDB437100C4C78A /* LoginViewController.swift */; };
+		4BB2327B1DDB437100C4C78A /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BB232791DDB437100C4C78A /* LoginViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4BB2325E1DDB42D800C4C78A /* SimpleChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BB232611DDB42D800C4C78A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4BB232631DDB42D800C4C78A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		4BB232661DDB42D800C4C78A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4BB232681DDB42D800C4C78A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4BB2326B1DDB42D800C4C78A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4BB2326D1DDB42D800C4C78A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4BB232741DDB42F300C4C78A /* SimpleChat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SimpleChat.entitlements; sourceTree = "<group>"; };
 		4BB232761DDB432000C4C78A /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		4BB232781DDB437100C4C78A /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ViewController/LoginViewController.swift; sourceTree = "<group>"; };
+		4BB232791DDB437100C4C78A /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginViewController.xib; path = ViewController/LoginViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,8 +62,6 @@
 				4BB232741DDB42F300C4C78A /* SimpleChat.entitlements */,
 				4BB232731DDB42E800C4C78A /* ViewController */,
 				4BB232611DDB42D800C4C78A /* AppDelegate.swift */,
-				4BB232631DDB42D800C4C78A /* ViewController.swift */,
-				4BB232651DDB42D800C4C78A /* Main.storyboard */,
 				4BB232681DDB42D800C4C78A /* Assets.xcassets */,
 				4BB2326A1DDB42D800C4C78A /* LaunchScreen.storyboard */,
 				4BB2326D1DDB42D800C4C78A /* Info.plist */,
@@ -74,6 +72,8 @@
 		4BB232731DDB42E800C4C78A /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				4BB232781DDB437100C4C78A /* LoginViewController.swift */,
+				4BB232791DDB437100C4C78A /* LoginViewController.xib */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -154,9 +154,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BB2327B1DDB437100C4C78A /* LoginViewController.xib in Resources */,
 				4BB2326C1DDB42D800C4C78A /* LaunchScreen.storyboard in Resources */,
 				4BB232691DDB42D800C4C78A /* Assets.xcassets in Resources */,
-				4BB232671DDB42D800C4C78A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,7 +167,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4BB232641DDB42D800C4C78A /* ViewController.swift in Sources */,
+				4BB2327A1DDB437100C4C78A /* LoginViewController.swift in Sources */,
 				4BB232621DDB42D800C4C78A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -175,14 +175,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		4BB232651DDB42D800C4C78A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4BB232661DDB42D800C4C78A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		4BB2326A1DDB42D800C4C78A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
