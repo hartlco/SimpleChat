@@ -45,8 +45,10 @@ class MessageStore {
         fetchOperation.perRecordCompletionBlock = { record, recordID, error in
             guard let record = record,
             let message = Message(record: record) else { return }
-            
-            print(message)
+            self.messages.append(message)
+            DispatchQueue.main.async {
+                self.messageInsertBlock?()
+            }
         }
         publicDatabase.add(fetchOperation)
     }

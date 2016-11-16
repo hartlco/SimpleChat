@@ -65,12 +65,19 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let message = messageStore.messages[indexPath.row]
-        
-        guard let ownMessageCell = tableView.dequeueReusableCell(withIdentifier: ChatViewController.OwnMessageCellIdentifier, for: indexPath) as? OwnMessageTableViewCell else { return UITableViewCell() }
-        
-        ownMessageCell.usernameLabel.text = message.username
-        ownMessageCell.messageLabel.text = message.message
-        return ownMessageCell
+        if message.ownMessage {
+            guard let ownMessageCell = tableView.dequeueReusableCell(withIdentifier: ChatViewController.OwnMessageCellIdentifier, for: indexPath) as? OwnMessageTableViewCell else { return UITableViewCell() }
+            
+            ownMessageCell.usernameLabel.text = message.username
+            ownMessageCell.messageLabel.text = message.message
+            return ownMessageCell
+        } else {
+            guard let messageCell = tableView.dequeueReusableCell(withIdentifier: ChatViewController.MessageCellidentifier, for: indexPath) as? MessageTableViewCell else { return UITableViewCell() }
+            
+            messageCell.usernameLabel.text = message.username
+            messageCell.messageLabel.text = message.message
+            return messageCell
+        }
     }
 }
 
