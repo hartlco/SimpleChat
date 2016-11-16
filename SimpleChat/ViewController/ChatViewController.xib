@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChatViewController" customModule="SimpleChat" customModuleProvider="target">
             <connections>
+                <outlet property="bottomConstraint" destination="YKX-5c-msF" id="7Sg-cU-PBp"/>
                 <outlet property="messageTextField" destination="rjO-BJ-oJi" id="hKe-6O-zaH"/>
                 <outlet property="tableView" destination="qqj-X2-gaR" id="7pX-po-n68"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -33,7 +34,7 @@
                     </constraints>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <textInputTraits key="textInputTraits" keyboardAppearance="alert" returnKeyType="send"/>
                 </textField>
             </subviews>
             <color key="backgroundColor" red="0.1989910305" green="0.21771231290000001" blue="0.26955398920000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

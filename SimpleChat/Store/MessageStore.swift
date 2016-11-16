@@ -23,7 +23,7 @@ class MessageStore {
         
         NotificationCenter.default.addObserver(forName: AppDelegate.CloudKitNotificationName, object: nil, queue: nil) { notification in
             guard let queryNotification = notification.object as? CKQueryNotification else { return }
-            self.appendMessage(fromQueryNotification: queryNotification)
+            self.fetchAndAppendMessage(fromQueryNotification: queryNotification)
         }
     }
     
@@ -39,7 +39,7 @@ class MessageStore {
         messageInsertBlock?()
     }
     
-    private func appendMessage(fromQueryNotification notification: CKQueryNotification) {
+    private func fetchAndAppendMessage(fromQueryNotification notification: CKQueryNotification) {
         guard let recordID = notification.recordID else { return }
         let fetchOperation = CKFetchRecordsOperation(recordIDs: [recordID])
         fetchOperation.perRecordCompletionBlock = { record, recordID, error in

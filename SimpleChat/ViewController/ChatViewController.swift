@@ -30,6 +30,7 @@ class ChatViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     
     fileprivate let username: String
     fileprivate let messageStore: MessageStore
@@ -39,16 +40,43 @@ class ChatViewController: UIViewController {
         self.messageStore = MessageStore()
         super.init(nibName: String(describing: ChatViewController.self), bundle: nil)
         self.messageStore.messageInsertBlock = insertRow
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardNotification(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     private func insertRow() {
         let messages = self.messageStore.messages
         let latestIndexPath = IndexPath(row: messages.count - 1, section: 0)
         self.tableView.insertRows(at: [latestIndexPath], with: .automatic)
+    }
+    
+    // MARK: - Keyboard
+    
+    internal func keyboardNotification(notification: NSNotification) {
+        if let userInfo = notification.userInfo {
+            let endFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+            let duration:TimeInterval = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0
+            let animationCurveRawNSN = userInfo[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber
+            let animationCurveRaw = animationCurveRawNSN?.uintValue ?? UIViewAnimationOptions.curveEaseInOut.rawValue
+            let animationCurve:UIViewAnimationOptions = UIViewAnimationOptions(rawValue: animationCurveRaw)
+            if (endFrame?.origin.y)! >= UIScreen.main.bounds.size.height {
+                self.bottomConstraint?.constant = 16.0
+            } else {
+                self.bottomConstraint?.constant = ((endFrame?.size.height) ?? 0) + 16.0
+            }
+            UIView.animate(withDuration: duration,
+                           delay: TimeInterval(0),
+                           options: animationCurve,
+                           animations: { self.view.layoutIfNeeded() },
+                           completion: nil)
+        }
     }
 
 }
