@@ -9,19 +9,27 @@
 import UIKit
 
 class MessageTableViewCell: UITableViewCell {
-
+    
+    var ownMessage = false
+    
+    var username = "" {
+        didSet {
+            ownUsernameLabel.text = ownMessage ? username : ""
+            usernameLabel.text = ownMessage ? "" : username
+        }
+    }
+    
+    var message = "" {
+        didSet {
+            ownMessageLabel.text = ownMessage ? message : ""
+            messageLabel.text = ownMessage ? "" : message
+        }
+    }
+    
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+    @IBOutlet weak var ownUsernameLabel: UILabel!
+    @IBOutlet weak var ownMessageLabel: UILabel!
     
 }

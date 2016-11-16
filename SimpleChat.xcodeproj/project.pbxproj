@@ -17,8 +17,6 @@
 		4BB2327B1DDB437100C4C78A /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BB232791DDB437100C4C78A /* LoginViewController.xib */; };
 		4BB2327E1DDB45EA00C4C78A /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB2327C1DDB45EA00C4C78A /* ChatViewController.swift */; };
 		4BB2327F1DDB45EA00C4C78A /* ChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BB2327D1DDB45EA00C4C78A /* ChatViewController.xib */; };
-		4BB232831DDB474600C4C78A /* OwnMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB232811DDB474600C4C78A /* OwnMessageTableViewCell.swift */; };
-		4BB232841DDB474600C4C78A /* OwnMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BB232821DDB474600C4C78A /* OwnMessageTableViewCell.xib */; };
 		4BB232871DDB4A9900C4C78A /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB232861DDB4A9900C4C78A /* Message.swift */; };
 		4BB2328A1DDB4B5F00C4C78A /* MessageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB232891DDB4B5F00C4C78A /* MessageStore.swift */; };
 /* End PBXBuildFile section */
@@ -37,8 +35,6 @@
 		4BB232791DDB437100C4C78A /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginViewController.xib; path = ViewController/LoginViewController.xib; sourceTree = "<group>"; };
 		4BB2327C1DDB45EA00C4C78A /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChatViewController.swift; path = ViewController/ChatViewController.swift; sourceTree = "<group>"; };
 		4BB2327D1DDB45EA00C4C78A /* ChatViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ChatViewController.xib; path = ViewController/ChatViewController.xib; sourceTree = "<group>"; };
-		4BB232811DDB474600C4C78A /* OwnMessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OwnMessageTableViewCell.swift; path = View/OwnMessageTableViewCell.swift; sourceTree = "<group>"; };
-		4BB232821DDB474600C4C78A /* OwnMessageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OwnMessageTableViewCell.xib; path = View/OwnMessageTableViewCell.xib; sourceTree = "<group>"; };
 		4BB232861DDB4A9900C4C78A /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Message.swift; path = Model/Message.swift; sourceTree = "<group>"; };
 		4BB232891DDB4B5F00C4C78A /* MessageStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageStore.swift; path = Store/MessageStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -110,8 +106,6 @@
 		4BB232801DDB470F00C4C78A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				4BB232811DDB474600C4C78A /* OwnMessageTableViewCell.swift */,
-				4BB232821DDB474600C4C78A /* OwnMessageTableViewCell.xib */,
 				4B9A41141DDC5DC600F786FD /* MessageTableViewCell.swift */,
 				4B9A41151DDC5DC600F786FD /* MessageTableViewCell.xib */,
 			);
@@ -207,7 +201,6 @@
 			files = (
 				4BB2327B1DDB437100C4C78A /* LoginViewController.xib in Resources */,
 				4B9A41171DDC5DC600F786FD /* MessageTableViewCell.xib in Resources */,
-				4BB232841DDB474600C4C78A /* OwnMessageTableViewCell.xib in Resources */,
 				4BB2326C1DDB42D800C4C78A /* LaunchScreen.storyboard in Resources */,
 				4BB2327F1DDB45EA00C4C78A /* ChatViewController.xib in Resources */,
 				4BB232691DDB42D800C4C78A /* Assets.xcassets in Resources */,
@@ -222,7 +215,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B9A41161DDC5DC600F786FD /* MessageTableViewCell.swift in Sources */,
-				4BB232831DDB474600C4C78A /* OwnMessageTableViewCell.swift in Sources */,
 				4BB2327A1DDB437100C4C78A /* LoginViewController.swift in Sources */,
 				4BB232871DDB4A9900C4C78A /* Message.swift in Sources */,
 				4BB2328A1DDB4B5F00C4C78A /* MessageStore.swift in Sources */,
