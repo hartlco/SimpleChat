@@ -38,10 +38,17 @@ class ChatViewController: UIViewController {
         self.username = username
         self.messageStore = MessageStore()
         super.init(nibName: String(describing: ChatViewController.self), bundle: nil)
+        self.messageStore.messageInsertBlock = insertRow
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func insertRow() {
+        let messages = self.messageStore.messages
+        let latestIndexPath = IndexPath(row: messages.count - 1, section: 0)
+        self.tableView.insertRows(at: [latestIndexPath], with: .automatic)
     }
 
 }
@@ -73,6 +80,8 @@ extension ChatViewController: UITextFieldDelegate {
         
         let message = Message(username: username, message: messageText, date: Date(), ownMessage: true)
         messageStore.send(message: message)
+        textField.text = ""
+        textField.resignFirstResponder()
         return true
     }
 }

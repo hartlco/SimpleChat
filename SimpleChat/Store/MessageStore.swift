@@ -10,8 +10,10 @@ import Foundation
 import CloudKit
 
 class MessageStore {
-    private(set) var messages = [Message]()
     
+    var messageInsertBlock: (() -> ())? = nil
+    
+    private(set) var messages = [Message]()
     private var publicDatabase: CKDatabase
     private var recordZone = CKRecordZone(zoneName: "MessageZone")
     
@@ -30,9 +32,11 @@ class MessageStore {
         
         let modifyOperation = CKModifyRecordsOperation(recordsToSave: [messageRecord], recordIDsToDelete: nil)
         modifyOperation.modifyRecordsCompletionBlock = { records, recordIDs, error in
-            print("error: \(error)")
+            
         }
         publicDatabase.add(modifyOperation)
+        messages.append(message)
+        messageInsertBlock?()
     }
     
     private func appendMessage(fromQueryNotification notification: CKQueryNotification) {
