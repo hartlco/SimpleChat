@@ -21,7 +21,7 @@ class MessageStore {
         
         NotificationCenter.default.addObserver(forName: AppDelegate.CloudKitNotificationName, object: nil, queue: nil) { notification in
             guard let queryNotification = notification.object as? CKQueryNotification else { return }
-            
+            self.appendMessage(fromQueryNotification: queryNotification)
         }
     }
     
@@ -33,6 +33,18 @@ class MessageStore {
             print("error: \(error)")
         }
         publicDatabase.add(modifyOperation)
+    }
+    
+    private func appendMessage(fromQueryNotification notification: CKQueryNotification) {
+        guard let recordID = notification.recordID else { return }
+        let fetchOperation = CKFetchRecordsOperation(recordIDs: [recordID])
+        fetchOperation.perRecordCompletionBlock = { record, recordID, error in
+            guard let record = record,
+            let message = Message(record: record) else { return }
+            
+            print(message)
+        }
+        publicDatabase.add(fetchOperation)
     }
     
     // MARK: - CloudKitNotification
@@ -66,5 +78,18 @@ extension CKRecord {
         self.setObject(message.date as CKRecordValue?, forKey: "Date")
         self.setObject(message.username as CKRecordValue?, forKey: "Username")
         self.setObject(message.message as CKRecordValue?, forKey: "Message")
+    }
+}
+
+extension Message {
+    init?(record: CKRecord) {
+        guard let username = record["Username"] as? String,
+        let message = record["Message"] as? String,
+        let date = record["Date"] as? Date else { return nil }
+        
+        self.username = username
+        self.message = message
+        self.date = date
+        self.ownMessage = false
     }
 }

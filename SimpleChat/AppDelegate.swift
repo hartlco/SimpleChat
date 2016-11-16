@@ -25,14 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
  
         application.registerForRemoteNotifications()
-        
-        //create the notificationCenter
         let center  = UNUserNotificationCenter.current()
-//        center.delegate = self
-        // set the type as sound or badge
         center.requestAuthorization(options: [.sound,.alert,.badge]) { (granted, error) in
-            // Enable or disable features based on authorization
-            
         }
         application.registerForRemoteNotifications()
         return true
@@ -43,6 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let notification = CKQueryNotification(fromRemoteNotificationDictionary: userInfo as! [String : NSObject])
         NotificationCenter.default.post(name: AppDelegate.CloudKitNotificationName, object: notification)
+        completionHandler(UIBackgroundFetchResult.newData)
     }
 
 }

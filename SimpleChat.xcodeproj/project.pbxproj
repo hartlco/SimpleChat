@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B9A41161DDC5DC600F786FD /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9A41141DDC5DC600F786FD /* MessageTableViewCell.swift */; };
+		4B9A41171DDC5DC600F786FD /* MessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B9A41151DDC5DC600F786FD /* MessageTableViewCell.xib */; };
 		4BB232621DDB42D800C4C78A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB232611DDB42D800C4C78A /* AppDelegate.swift */; };
 		4BB232691DDB42D800C4C78A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BB232681DDB42D800C4C78A /* Assets.xcassets */; };
 		4BB2326C1DDB42D800C4C78A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BB2326A1DDB42D800C4C78A /* LaunchScreen.storyboard */; };
@@ -22,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4B9A41141DDC5DC600F786FD /* MessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageTableViewCell.swift; path = View/MessageTableViewCell.swift; sourceTree = "<group>"; };
+		4B9A41151DDC5DC600F786FD /* MessageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MessageTableViewCell.xib; path = View/MessageTableViewCell.xib; sourceTree = "<group>"; };
 		4BB2325E1DDB42D800C4C78A /* SimpleChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BB232611DDB42D800C4C78A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4BB232681DDB42D800C4C78A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -108,6 +112,8 @@
 			children = (
 				4BB232811DDB474600C4C78A /* OwnMessageTableViewCell.swift */,
 				4BB232821DDB474600C4C78A /* OwnMessageTableViewCell.xib */,
+				4B9A41141DDC5DC600F786FD /* MessageTableViewCell.swift */,
+				4B9A41151DDC5DC600F786FD /* MessageTableViewCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -200,6 +206,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4BB2327B1DDB437100C4C78A /* LoginViewController.xib in Resources */,
+				4B9A41171DDC5DC600F786FD /* MessageTableViewCell.xib in Resources */,
 				4BB232841DDB474600C4C78A /* OwnMessageTableViewCell.xib in Resources */,
 				4BB2326C1DDB42D800C4C78A /* LaunchScreen.storyboard in Resources */,
 				4BB2327F1DDB45EA00C4C78A /* ChatViewController.xib in Resources */,
@@ -214,6 +221,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B9A41161DDC5DC600F786FD /* MessageTableViewCell.swift in Sources */,
 				4BB232831DDB474600C4C78A /* OwnMessageTableViewCell.swift in Sources */,
 				4BB2327A1DDB437100C4C78A /* LoginViewController.swift in Sources */,
 				4BB232871DDB4A9900C4C78A /* Message.swift in Sources */,
@@ -377,6 +385,7 @@
 				4BB232721DDB42D800C4C78A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

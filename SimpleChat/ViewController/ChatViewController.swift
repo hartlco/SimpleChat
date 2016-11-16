@@ -11,12 +11,14 @@ import UIKit
 class ChatViewController: UIViewController {
     
     static let OwnMessageCellIdentifier = "OwnMessageCellIdentifier"
+    static let MessageCellidentifier = "MessageCellidentifier"
     
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.delegate = self
             tableView.dataSource = self
             tableView.register(UINib(nibName: "OwnMessageTableViewCell", bundle: nil), forCellReuseIdentifier: ChatViewController.OwnMessageCellIdentifier)
+            tableView.register(UINib(nibName: "MessageTableViewCell", bundle: nil), forCellReuseIdentifier: ChatViewController.MessageCellidentifier)
             tableView.rowHeight = UITableViewAutomaticDimension
             tableView.estimatedRowHeight = 44.0
         }
