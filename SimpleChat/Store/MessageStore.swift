@@ -15,7 +15,6 @@ class MessageStore {
     
     private(set) var messages = [Message]()
     private var publicDatabase: CKDatabase
-    private var recordZone = CKRecordZone(zoneName: "MessageZone")
     
     init() {
         self.publicDatabase = CKContainer.default().publicCloudDatabase
@@ -27,12 +26,14 @@ class MessageStore {
         }
     }
     
+    // MARK: - Send and fetch message
+    
     func send(message: Message) {
         let messageRecord = CKRecord(message: message)
         
         let modifyOperation = CKModifyRecordsOperation(recordsToSave: [messageRecord], recordIDsToDelete: nil)
         modifyOperation.modifyRecordsCompletionBlock = { records, recordIDs, error in
-            
+            // Error & completion handling maybe
         }
         publicDatabase.add(modifyOperation)
         messages.append(message)
@@ -80,22 +81,25 @@ class MessageStore {
 
 extension CKRecord {
     convenience init(message: Message) {
-        self.init(recordType: "Message", zoneID: CKRecordZone.default().zoneID)
-        self.setObject(message.date as CKRecordValue?, forKey: "Date")
-        self.setObject(message.username as CKRecordValue?, forKey: "Username")
-        self.setObject(message.message as CKRecordValue?, forKey: "Message")
+        self.init(recordType: String(describing: Message.self), zoneID: CKRecordZone.default().zoneID)
+        self[Message.DateKey] = message.date as CKRecordValue
+        self[Message.UsernameKey] = message.username as CKRecordValue
+        self[Message.MessageKey] = message.message as CKRecordValue
     }
 }
 
 extension Message {
     init?(record: CKRecord) {
-        guard let username = record["Username"] as? String,
-        let message = record["Message"] as? String,
-        let date = record["Date"] as? Date else { return nil }
+        guard let username = record[Message.UsernameKey] as? String,
+        let message = record[Message.MessageKey] as? String,
+        let date = record[Message.DateKey] as? Date else { return nil }
         
         self.username = username
         self.message = message
         self.date = date
+        
+        // It would be possible to compare CloudKit userIDs here to determine if it's an own
+        // message sent from a different device
         self.ownMessage = false
     }
 }

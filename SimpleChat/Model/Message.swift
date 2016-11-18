@@ -9,6 +9,11 @@
 import Foundation
 
 struct Message {
+    
+    static let UsernameKey = "Username"
+    static let MessageKey = "Message"
+    static let DateKey = "Date"
+    
     let username: String
     let message: String
     let date: Date
