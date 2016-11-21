@@ -56,20 +56,20 @@ class MessageStore {
     
     // MARK: - CloudKitNotification
     
-    fileprivate func notificationInfo() -> CKNotificationInfo {
+    private func subscribeToItemUpdates() {
+        self.saveSubscriptionWithIdent("create", options: .firesOnRecordCreation)
+        self.saveSubscriptionWithIdent("update", options: .firesOnRecordUpdate)
+        self.saveSubscriptionWithIdent("delete", options: .firesOnRecordDeletion)
+    }
+    
+    private func notificationInfo() -> CKNotificationInfo {
         let notificationInfo = CKNotificationInfo()
         notificationInfo.shouldBadge = false
         notificationInfo.shouldSendContentAvailable = true
         return notificationInfo
     }
     
-    fileprivate func subscribeToItemUpdates() {
-        self.saveSubscriptionWithIdent("create", options: .firesOnRecordCreation)
-        self.saveSubscriptionWithIdent("update", options: .firesOnRecordUpdate)
-        self.saveSubscriptionWithIdent("delete", options: .firesOnRecordDeletion)
-    }
-    
-    fileprivate func saveSubscriptionWithIdent(_ ident: String, options: CKQuerySubscriptionOptions) {
+    private func saveSubscriptionWithIdent(_ ident: String, options: CKQuerySubscriptionOptions) {
         let subscription = CKQuerySubscription(recordType: "Message", predicate: NSPredicate(value: true), subscriptionID: ident, options: options)
         subscription.notificationInfo = self.notificationInfo();
         publicDatabase.save(subscription) { (subscription, error) -> Void in
