@@ -2,7 +2,7 @@
 //  MessageTableViewCell.swift
 //  SimpleChat
 //
-//  Created by mhaddl on 16/11/2016.
+//  Created by hartlco on 16/11/2016.
 //  Copyright © 2016 Martin Hartl. All rights reserved.
 //
 

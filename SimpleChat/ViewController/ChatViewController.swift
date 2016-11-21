@@ -2,7 +2,7 @@
 //  ChatViewController.swift
 //  SimpleChat
 //
-//  Created by mhaddl on 15/11/2016.
+//  Created by hartlco on 15/11/2016.
 //  Copyright © 2016 Martin Hartl. All rights reserved.
 //
 
@@ -39,7 +39,9 @@ class ChatViewController: UIViewController {
         self.username = username
         self.messageStore = MessageStore()
         super.init(nibName: String(describing: ChatViewController.self), bundle: nil)
+        
         self.messageStore.messageInsertBlock = insertRow
+        
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardNotification(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
     }
     
@@ -108,8 +110,10 @@ extension ChatViewController: UITextFieldDelegate {
         
         let message = Message(username: username, message: messageText, date: Date(), ownMessage: true)
         messageStore.send(message: message)
+        
         textField.text = ""
         textField.resignFirstResponder()
+        
         return true
     }
 }

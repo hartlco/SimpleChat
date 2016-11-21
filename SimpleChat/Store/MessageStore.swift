@@ -2,7 +2,7 @@
 //  MessageStore.swift
 //  SimpleChat
 //
-//  Created by mhaddl on 15/11/2016.
+//  Created by hartlco on 15/11/2016.
 //  Copyright © 2016 Martin Hartl. All rights reserved.
 //
 
@@ -73,7 +73,7 @@ class MessageStore {
         let subscription = CKQuerySubscription(recordType: "Message", predicate: NSPredicate(value: true), subscriptionID: ident, options: options)
         subscription.notificationInfo = self.notificationInfo();
         publicDatabase.save(subscription) { (subscription, error) -> Void in
-            
+            // Error handling 
         }
     }
     
