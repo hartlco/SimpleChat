@@ -64,8 +64,7 @@ class ChatViewController: UIViewController {
     }
     
     private func insertRow() {
-        let messages = messageStore.messages
-        let latestIndexPath = IndexPath(row: messages.count - 1, section: 0)
+        let latestIndexPath = IndexPath(row: messageStore.messages.count - 1, section: 0)
         tableView.insertRows(at: [latestIndexPath], with: .automatic)
     }
     

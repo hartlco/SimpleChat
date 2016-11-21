@@ -14,10 +14,9 @@ class MessageStore {
     var messageInsertBlock: (() -> ())? = nil
     
     private(set) var messages = [Message]()
-    private var publicDatabase: CKDatabase
+    private var publicDatabase = CKContainer.default().publicCloudDatabase
     
     init() {
-        self.publicDatabase = CKContainer.default().publicCloudDatabase
         self.subscribeToItemUpdates()
         
         NotificationCenter.default.addObserver(forName: AppDelegate.CloudKitNotificationName, object: nil, queue: nil) { notification in
@@ -32,7 +31,7 @@ class MessageStore {
         let messageRecord = CKRecord(message: message)
         
         let modifyOperation = CKModifyRecordsOperation(recordsToSave: [messageRecord], recordIDsToDelete: nil)
-        modifyOperation.modifyRecordsCompletionBlock = { records, recordIDs, error in
+        modifyOperation.modifyRecordsCompletionBlock = { records, deletedRecordIDs, error in
             // Error & completion handling maybe
         }
         publicDatabase.add(modifyOperation)
@@ -46,6 +45,7 @@ class MessageStore {
         fetchOperation.perRecordCompletionBlock = { record, recordID, error in
             guard let record = record,
             let message = Message(record: record) else { return }
+            
             self.messages.append(message)
             DispatchQueue.main.async {
                 self.messageInsertBlock?()
@@ -62,19 +62,19 @@ class MessageStore {
         self.saveSubscriptionWithIdent("delete", options: .firesOnRecordDeletion)
     }
     
-    private func notificationInfo() -> CKNotificationInfo {
-        let notificationInfo = CKNotificationInfo()
-        notificationInfo.shouldBadge = false
-        notificationInfo.shouldSendContentAvailable = true
-        return notificationInfo
-    }
-    
     private func saveSubscriptionWithIdent(_ ident: String, options: CKQuerySubscriptionOptions) {
         let subscription = CKQuerySubscription(recordType: "Message", predicate: NSPredicate(value: true), subscriptionID: ident, options: options)
         subscription.notificationInfo = self.notificationInfo();
         publicDatabase.save(subscription) { (subscription, error) -> Void in
             // Error handling 
         }
+    }
+    
+    private func notificationInfo() -> CKNotificationInfo {
+        let notificationInfo = CKNotificationInfo()
+        notificationInfo.shouldBadge = false
+        notificationInfo.shouldSendContentAvailable = true
+        return notificationInfo
     }
     
 }
