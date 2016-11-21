@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import Typist
 
 class ChatViewController: UIViewController {
     
     static let OwnMessageCellIdentifier = "OwnMessageCellIdentifier"
     static let MessageCellidentifier = "MessageCellidentifier"
+    
+    let inputBarOffset: CGFloat = 16.0
     
     @IBOutlet weak var tableView: UITableView! {
         didSet {
@@ -42,7 +45,13 @@ class ChatViewController: UIViewController {
         
         self.messageStore.messageInsertBlock = insertRow
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardNotification(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
+        Typist.shared.on(event: .willShow) { (options) in
+            let y = (self.view.frame.size.height - options.endFrame.origin.y) + self.inputBarOffset
+            self.moveInputBar(toY: y, duration: options.animationDuration, animationCurveRaw: options.animationCurve)
+        }.on(event: .willHide) { (options) in
+            let y = self.inputBarOffset
+            self.moveInputBar(toY: y, duration: options.animationDuration, animationCurveRaw: options.animationCurve)
+        }.start()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -61,24 +70,10 @@ class ChatViewController: UIViewController {
     
     // MARK: - Keyboard
     
-    internal func keyboardNotification(notification: NSNotification) {
-        if let userInfo = notification.userInfo {
-            let endFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
-            let duration:TimeInterval = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0
-            let animationCurveRawNSN = userInfo[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber
-            let animationCurveRaw = animationCurveRawNSN?.uintValue ?? UIViewAnimationOptions.curveEaseInOut.rawValue
-            let animationCurve:UIViewAnimationOptions = UIViewAnimationOptions(rawValue: animationCurveRaw)
-            if (endFrame?.origin.y)! >= UIScreen.main.bounds.size.height {
-                self.bottomConstraint?.constant = 16.0
-            } else {
-                self.bottomConstraint?.constant = ((endFrame?.size.height) ?? 0) + 16.0
-            }
-            UIView.animate(withDuration: duration,
-                           delay: TimeInterval(0),
-                           options: animationCurve,
-                           animations: { self.view.layoutIfNeeded() },
-                           completion: nil)
-        }
+    internal func moveInputBar(toY y: CGFloat, duration: Double, animationCurveRaw: UIViewAnimationCurve) {
+        self.bottomConstraint?.constant = y
+        UIView.animate(withDuration: duration, delay: TimeInterval(0), options: UIViewAnimationOptions(rawValue: UInt(animationCurveRaw.rawValue)), animations: { self.view.layoutIfNeeded() },
+                       completion: nil)
     }
 
 }

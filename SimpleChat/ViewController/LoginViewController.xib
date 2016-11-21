@@ -21,28 +21,28 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2aN-H8-RsM">
-                    <rect key="frame" x="0.0" y="313" width="375" height="40"/>
+                    <rect key="frame" x="0.0" y="47" width="375" height="40"/>
                     <subviews>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Wg-QH-IPJ">
-                            <rect key="frame" x="16" y="5" width="343" height="30"/>
+                            <rect key="frame" x="16" y="5" width="359" height="30"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
                             <textInputTraits key="textInputTraits" keyboardAppearance="alert" returnKeyType="go"/>
                         </textField>
                     </subviews>
                     <color key="backgroundColor" red="0.1989910305" green="0.21771231290000001" blue="0.26955398920000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="3Wg-QH-IPJ" firstAttribute="leading" secondItem="2aN-H8-RsM" secondAttribute="leading" constant="16" id="2aF-i7-oAz"/>
-                        <constraint firstAttribute="trailing" secondItem="3Wg-QH-IPJ" secondAttribute="trailing" constant="16" id="bX8-0x-FEd"/>
+                        <constraint firstAttribute="trailing" secondItem="3Wg-QH-IPJ" secondAttribute="trailing" id="bX8-0x-FEd"/>
                         <constraint firstAttribute="bottom" secondItem="3Wg-QH-IPJ" secondAttribute="bottom" constant="5" id="hiT-YI-VKn"/>
                         <constraint firstAttribute="height" constant="40" id="i1S-dL-cCw"/>
                         <constraint firstItem="3Wg-QH-IPJ" firstAttribute="top" secondItem="2aN-H8-RsM" secondAttribute="top" constant="5" id="yus-8J-Lxe"/>
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ENTER USERNAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bFL-NS-lYt">
-                    <rect key="frame" x="16" y="291.5" width="100.5" height="13.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                    <color key="textColor" red="0.52444839480000005" green="0.54334563020000004" blue="0.59519922729999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <rect key="frame" x="16" y="23" width="117" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
@@ -50,10 +50,10 @@
             <constraints>
                 <constraint firstItem="2aN-H8-RsM" firstAttribute="top" secondItem="bFL-NS-lYt" secondAttribute="bottom" constant="8" id="8Om-zt-DhP"/>
                 <constraint firstItem="2aN-H8-RsM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="NvT-Yp-OOp"/>
-                <constraint firstItem="2aN-H8-RsM" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="bBo-OP-LOk"/>
-                <constraint firstItem="2aN-H8-RsM" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="k1s-Ta-aak"/>
+                <constraint firstItem="bFL-NS-lYt" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="23" id="e9O-8k-qT0"/>
                 <constraint firstItem="bFL-NS-lYt" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="nyc-zU-Qfz"/>
-                <constraint firstAttribute="trailing" secondItem="2aN-H8-RsM" secondAttribute="trailing" id="qcn-ZC-crS"/>
+                <constraint firstAttribute="trailing" secondItem="2aN-H8-RsM" secondAttribute="trailing" id="yj4-24-4vf"/>
+                <constraint firstItem="2aN-H8-RsM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="z1h-mg-ySE"/>
             </constraints>
             <point key="canvasLocation" x="25.5" y="52.5"/>
         </view>
