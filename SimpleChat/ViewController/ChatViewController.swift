@@ -45,6 +45,7 @@ class ChatViewController: UIViewController {
         
         self.messageStore.messageInsertBlock = insertRow
         
+        // Keyboard notifications with support for external keyboards
         Typist.shared.on(event: .willShow) { (options) in
             let y = (self.view.frame.size.height - options.endFrame.origin.y) + self.inputBarOffset
             self.moveInputBar(toY: y, duration: options.animationDuration, animationCurveRaw: options.animationCurve)
@@ -63,15 +64,15 @@ class ChatViewController: UIViewController {
     }
     
     private func insertRow() {
-        let messages = self.messageStore.messages
+        let messages = messageStore.messages
         let latestIndexPath = IndexPath(row: messages.count - 1, section: 0)
-        self.tableView.insertRows(at: [latestIndexPath], with: .automatic)
+        tableView.insertRows(at: [latestIndexPath], with: .automatic)
     }
     
-    // MARK: - Keyboard
+    // MARK: - Keyboard animation
     
     internal func moveInputBar(toY y: CGFloat, duration: Double, animationCurveRaw: UIViewAnimationCurve) {
-        self.bottomConstraint?.constant = y
+        bottomConstraint?.constant = y
         UIView.animate(withDuration: duration, delay: TimeInterval(0), options: UIViewAnimationOptions(rawValue: UInt(animationCurveRaw.rawValue)), animations: { self.view.layoutIfNeeded() },
                        completion: nil)
     }
