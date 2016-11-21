@@ -48,10 +48,10 @@ class ChatViewController: UIViewController {
         // Keyboard notifications with support for external keyboards
         Typist.shared.on(event: .willShow) { (options) in
             let y = (self.view.frame.size.height - options.endFrame.origin.y) + self.inputBarOffset
-            self.moveInputBar(toY: y, duration: options.animationDuration, animationCurveRaw: options.animationCurve)
+            self.moveInputBar(toY: y, duration: options.animationDuration, animationCurve: options.animationCurve)
         }.on(event: .willHide) { (options) in
             let y = self.inputBarOffset
-            self.moveInputBar(toY: y, duration: options.animationDuration, animationCurveRaw: options.animationCurve)
+            self.moveInputBar(toY: y, duration: options.animationDuration, animationCurve: options.animationCurve)
         }.start()
     }
     
@@ -70,9 +70,9 @@ class ChatViewController: UIViewController {
     
     // MARK: - Keyboard animation
     
-    internal func moveInputBar(toY y: CGFloat, duration: Double, animationCurveRaw: UIViewAnimationCurve) {
+    internal func moveInputBar(toY y: CGFloat, duration: Double, animationCurve: UIViewAnimationCurve) {
         bottomConstraint?.constant = y
-        UIView.animate(withDuration: duration, delay: TimeInterval(0), options: UIViewAnimationOptions(rawValue: UInt(animationCurveRaw.rawValue)), animations: { self.view.layoutIfNeeded() },
+        UIView.animate(withDuration: duration, delay: TimeInterval(0), options: UIViewAnimationOptions(rawValue: UInt(animationCurve.rawValue)), animations: { self.view.layoutIfNeeded() },
                        completion: nil)
     }
 

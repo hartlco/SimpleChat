@@ -34,6 +34,7 @@ class MessageStore {
         modifyOperation.modifyRecordsCompletionBlock = { records, deletedRecordIDs, error in
             // Error & completion handling maybe
         }
+        
         publicDatabase.add(modifyOperation)
         messages.append(message)
         messageInsertBlock?()
@@ -50,6 +51,7 @@ class MessageStore {
             DispatchQueue.main.async {
                 self.messageInsertBlock?()
             }
+            
         }
         publicDatabase.add(fetchOperation)
     }
@@ -63,7 +65,7 @@ class MessageStore {
     }
     
     private func saveSubscriptionWithIdent(_ ident: String, options: CKQuerySubscriptionOptions) {
-        let subscription = CKQuerySubscription(recordType: "Message", predicate: NSPredicate(value: true), subscriptionID: ident, options: options)
+        let subscription = CKQuerySubscription(recordType: String(describing: Message.self), predicate: NSPredicate(value: true), subscriptionID: ident, options: options)
         subscription.notificationInfo = self.notificationInfo();
         publicDatabase.save(subscription) { (subscription, error) -> Void in
             // Error handling 
